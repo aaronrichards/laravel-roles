@@ -9,7 +9,7 @@
 Route::group([
     'middleware'    => ['web'],
     'as'            => 'laravelroles::',
-    'namespace'     => 'jeremykenedy\LaravelRoles\App\Http\Controllers',
+    'namespace'     => 'aaronrichards\LaravelRoles\App\Http\Controllers',
 ], function () {
 
     // Dashboards and CRUD Routes

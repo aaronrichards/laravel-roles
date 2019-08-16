@@ -1,13 +1,13 @@
 <?php
 
-namespace jeremykenedy\LaravelRoles\Models;
+namespace aaronrichards\LaravelRoles\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use jeremykenedy\LaravelRoles\Contracts\RoleHasRelations as RoleHasRelationsContract;
-use jeremykenedy\LaravelRoles\Traits\DatabaseTraits;
-use jeremykenedy\LaravelRoles\Traits\RoleHasRelations;
-use jeremykenedy\LaravelRoles\Traits\Slugable;
+use aaronrichards\LaravelRoles\Contracts\RoleHasRelations as RoleHasRelationsContract;
+use aaronrichards\LaravelRoles\Traits\DatabaseTraits;
+use aaronrichards\LaravelRoles\Traits\RoleHasRelations;
+use aaronrichards\LaravelRoles\Traits\Slugable;
 
 class Role extends Model implements RoleHasRelationsContract
 {

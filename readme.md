@@ -1,12 +1,12 @@
 # Laravel Roles
 
-[![Total Downloads](https://poser.pugx.org/jeremykenedy/laravel-roles/d/total.svg)](https://packagist.org/packages/jeremykenedy/laravel-roles)
-[![Latest Stable Version](https://poser.pugx.org/jeremykenedy/laravel-roles/v/stable.svg)](https://packagist.org/packages/jeremykenedy/laravel-roles)
-[![Travis-CI Build Status](https://travis-ci.org/jeremykenedy/laravel-roles.svg?branch=master)](https://travis-ci.org/jeremykenedy/laravel-roles)
-[![Scrutinizer-CI Build Status](https://scrutinizer-ci.com/g/jeremykenedy/laravel-roles/badges/build.png?b=master)](https://scrutinizer-ci.com/g/jeremykenedy/laravel-roles/build-status/master)
+[![Total Downloads](https://poser.pugx.org/aaronrichards/laravel-roles/d/total.svg)](https://packagist.org/packages/aaronrichards/laravel-roles)
+[![Latest Stable Version](https://poser.pugx.org/aaronrichards/laravel-roles/v/stable.svg)](https://packagist.org/packages/aaronrichards/laravel-roles)
+[![Travis-CI Build Status](https://travis-ci.org/aaronrichards/laravel-roles.svg?branch=master)](https://travis-ci.org/aaronrichards/laravel-roles)
+[![Scrutinizer-CI Build Status](https://scrutinizer-ci.com/g/aaronrichards/laravel-roles/badges/build.png?b=master)](https://scrutinizer-ci.com/g/aaronrichards/laravel-roles/build-status/master)
 [![StyleCI](https://github.styleci.io/repos/82768379/shield?branch=master)](https://github.styleci.io/repos/82768379)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/jeremykenedy/laravel-roles/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/jeremykenedy/laravel-roles/?branch=master)
-[![Code Intelligence Status](https://scrutinizer-ci.com/g/jeremykenedy/laravel-roles/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/aaronrichards/laravel-roles/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/aaronrichards/laravel-roles/?branch=master)
+[![Code Intelligence Status](https://scrutinizer-ci.com/g/aaronrichards/laravel-roles/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 <a href="https://www.patreon.com/bePatron?u=10119959" title="Become a Patreon">
     <img src="https://c5.patreon.com/external/logo/become_a_patron_button.png" alt="Become a Patreon" width="85px" > 
@@ -70,13 +70,13 @@ From your projects root folder in terminal run:
 Laravel 5.8 and up use:
 
 ```
-    composer require jeremykenedy/laravel-roles
+    composer require aaronrichards/laravel-roles
 ```
 
 Laravel 5.7 and below use:
 
 ```
-    composer require jeremykenedy/laravel-roles:1.4.0
+    composer require aaronrichards/laravel-roles:1.4.0
 ```
 
 * Note: The major difference is that Laravel's users table migration out the box changed from `$table->increments('id');` to `$table->bigIncrements('id');` in Laravel 5.8.
@@ -96,7 +96,7 @@ Add the package to your application service providers in `config/app.php` file.
     /**
      * Third Party Service Providers...
      */
-    jeremykenedy\LaravelRoles\RolesServiceProvider::class,
+    aaronrichards\LaravelRoles\RolesServiceProvider::class,
 
 ],
 ```
@@ -117,7 +117,7 @@ Add the package to your application service providers in `config/app.php` file.
 
 1. Include `HasRoleAndPermission` trait and also implement `HasRoleAndPermission` contract inside your `User` model. See example below.
 
-2. Include `use jeremykenedy\LaravelRoles\Traits\HasRoleAndPermission;` in the top of your `User` model below the namespace and implement the `HasRoleAndPermission` trait. See example below.
+2. Include `use aaronrichards\LaravelRoles\Traits\HasRoleAndPermission;` in the top of your `User` model below the namespace and implement the `HasRoleAndPermission` trait. See example below.
 
 Example `User` model Trait And Contract:
 
@@ -129,7 +129,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
-use jeremykenedy\LaravelRoles\Traits\HasRoleAndPermission;
+use aaronrichards\LaravelRoles\Traits\HasRoleAndPermission;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -247,7 +247,7 @@ php artisan db:seed
 ---
 
 ## Migrate from bican roles
-If you migrate from bican/roles to jeremykenedy/LaravelRoles you will need to update a few things.
+If you migrate from bican/roles to aaronrichards/LaravelRoles you will need to update a few things.
 - Change all calls to `can`, `canOne` and `canAll` to `hasPermission`, `hasOnePermission`, `hasAllPermissions`.
 - Change all calls to `is`, `isOne` and `isAll` to `hasRole`, `hasOneRole`, `hasAllRoles`.
 
@@ -490,7 +490,7 @@ There are four Blade extensions. Basically, it is replacement for classic if sta
 
 ### Middleware
 This package comes with `VerifyRole`, `VerifyPermission` and `VerifyLevel` middleware.
-The middleware aliases are already registered in `\jeremykenedy\LaravelRoles\RolesServiceProvider` as of 1.7.
+The middleware aliases are already registered in `\aaronrichards\LaravelRoles\RolesServiceProvider` as of 1.7.
 You can optionally add them inside your `app/Http/Kernel.php` file with your own aliases like outlined below:
 
 ```php
@@ -509,9 +509,9 @@ protected $routeMiddleware = [
     'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
     'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
     'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-    'role'          => \jeremykenedy\LaravelRoles\Middleware\VerifyRole::class,
-    'permission'    => \jeremykenedy\LaravelRoles\Middleware\VerifyPermission::class,
-    'level'         => \jeremykenedy\LaravelRoles\Middleware\VerifyLevel::class,
+    'role'          => \aaronrichards\LaravelRoles\Middleware\VerifyRole::class,
+    'permission'    => \aaronrichards\LaravelRoles\Middleware\VerifyPermission::class,
+    'level'         => \aaronrichards\LaravelRoles\Middleware\VerifyLevel::class,
 ];
 ```
 
@@ -540,7 +540,7 @@ Route::group(['middleware' => ['role:admin']], function () {
 
 ```
 
-It throws `\jeremykenedy\LaravelRoles\App\Exceptions\RoleDeniedException`, `\jeremykenedy\LaravelRoles\App\Exceptions\PermissionDeniedException` or `\jeremykenedy\LaravelRoles\App\Exceptions\LevelDeniedException` exceptions if it goes wrong.
+It throws `\aaronrichards\LaravelRoles\App\Exceptions\RoleDeniedException`, `\aaronrichards\LaravelRoles\App\Exceptions\PermissionDeniedException` or `\aaronrichards\LaravelRoles\App\Exceptions\LevelDeniedException` exceptions if it goes wrong.
 
 You can catch these exceptions inside `app/Exceptions/Handler.php` file and do whatever you want.
 
@@ -555,10 +555,10 @@ You can catch these exceptions inside `app/Exceptions/Handler.php` file and do w
     public function render($request, Exception $exception)
     {
 
-        $userLevelCheck = $exception instanceof \jeremykenedy\LaravelRoles\App\Exceptions\RoleDeniedException ||
-            $exception instanceof \jeremykenedy\LaravelRoles\App\Exceptions\RoleDeniedException ||
-            $exception instanceof \jeremykenedy\LaravelRoles\App\Exceptions\PermissionDeniedException ||
-            $exception instanceof \jeremykenedy\LaravelRoles\App\Exceptions\LevelDeniedException;
+        $userLevelCheck = $exception instanceof \aaronrichards\LaravelRoles\App\Exceptions\RoleDeniedException ||
+            $exception instanceof \aaronrichards\LaravelRoles\App\Exceptions\RoleDeniedException ||
+            $exception instanceof \aaronrichards\LaravelRoles\App\Exceptions\PermissionDeniedException ||
+            $exception instanceof \aaronrichards\LaravelRoles\App\Exceptions\LevelDeniedException;
 
         if ($userLevelCheck) {
 
@@ -582,7 +582,7 @@ You can catch these exceptions inside `app/Exceptions/Handler.php` file and do w
 * You can change connection for models, slug separator, models path and there is also a handy pretend feature.
 * There are many configurable options which have been extended to be able to configured via `.env` file variables.
 * Editing the configuration file directly may not needed becuase of this.
-* See config file: [roles.php](https://github.com/jeremykenedy/laravel-roles/blob/master/src/config/roles.php).
+* See config file: [roles.php](https://github.com/aaronrichards/laravel-roles/blob/master/src/config/roles.php).
 
 ```php
 
@@ -627,14 +627,14 @@ return [
     |--------------------------------------------------------------------------
     |
     | If you want, you can replace default models from this package by models
-    | you created. Have a look at `jeremykenedy\LaravelRoles\Models\Role` model and
-    | `jeremykenedy\LaravelRoles\Models\Permission` model.
+    | you created. Have a look at `aaronrichards\LaravelRoles\Models\Role` model and
+    | `aaronrichards\LaravelRoles\Models\Permission` model.
     |
     */
 
     'models' => [
-        'role'          => env('ROLES_DEFAULT_ROLE_MODEL', jeremykenedy\LaravelRoles\Models\Role::class),
-        'permission'    => env('ROLES_DEFAULT_PERMISSION_MODEL', jeremykenedy\LaravelRoles\Models\Permission::class),
+        'role'          => env('ROLES_DEFAULT_ROLE_MODEL', aaronrichards\LaravelRoles\Models\Role::class),
+        'permission'    => env('ROLES_DEFAULT_PERMISSION_MODEL', aaronrichards\LaravelRoles\Models\Permission::class),
         'defaultUser'   => env('ROLES_DEFAULT_USER_MODEL', config('auth.providers.users.model')),
     ],
 
@@ -804,8 +804,8 @@ return [
 ```
 # Roles Default Models
 ROLES_DEFAULT_USER_MODEL=App\User
-ROLES_DEFAULT_ROLE_MODEL=jeremykenedy\LaravelRoles\Models\Role
-ROLES_DEFAULT_PERMISSION_MODEL=jeremykenedy\LaravelRoles\Models\Permission
+ROLES_DEFAULT_ROLE_MODEL=aaronrichards\LaravelRoles\Models\Role
+ROLES_DEFAULT_PERMISSION_MODEL=aaronrichards\LaravelRoles\Models\Permission
 
 # Roles database information
 ROLES_DATABASE_CONNECTION=null
@@ -842,39 +842,39 @@ ROLES_GUI_DATATABLES_JS_ENABLED=false
 ```
 
 ## More Information
-For more information, please have a look at [HasRoleAndPermission](https://github.com/jeremykenedy/laravel-roles/blob/master/src/Contracts/HasRoleAndPermission.php) contract.
+For more information, please have a look at [HasRoleAndPermission](https://github.com/aaronrichards/laravel-roles/blob/master/src/Contracts/HasRoleAndPermission.php) contract.
 
 ## Optional GUI Routes
 ```
 +--------+-----------+---------------------------------+-----------------------------------------------+-----------------------------------------------------------------------------------------------------------------+---------------------+
 | Domain | Method    | URI                             | Name                                          | Action                                                                                                          | Middleware          |
 +--------+-----------+---------------------------------+-----------------------------------------------+-----------------------------------------------------------------------------------------------------------------+---------------------+
-|        | GET|HEAD  | permission-deleted/{id}         | laravelroles::permission-show-deleted         | jeremykenedy\LaravelRoles\App\Http\Controllers\LaravelpermissionsDeletedController@show                         | web,auth,role:admin |
-|        | DELETE    | permission-destroy/{id}         | laravelroles::permission-item-destroy         | jeremykenedy\LaravelRoles\App\Http\Controllers\LaravelpermissionsDeletedController@destroy                      | web,auth,role:admin |
-|        | PUT       | permission-restore/{id}         | laravelroles::permission-restore              | jeremykenedy\LaravelRoles\App\Http\Controllers\LaravelpermissionsDeletedController@restorePermission            | web,auth,role:admin |
-|        | POST      | permissions                     | laravelroles::permissions.store               | jeremykenedy\LaravelRoles\App\Http\Controllers\LaravelPermissionsController@store                               | web,auth,role:admin |
-|        | GET|HEAD  | permissions                     | laravelroles::permissions.index               | jeremykenedy\LaravelRoles\App\Http\Controllers\LaravelPermissionsController@index                               | web,auth,role:admin |
-|        | GET|HEAD  | permissions-deleted             | laravelroles::permissions-deleted             | jeremykenedy\LaravelRoles\App\Http\Controllers\LaravelpermissionsDeletedController@index                        | web,auth,role:admin |
-|        | DELETE    | permissions-deleted-destroy-all | laravelroles::destroy-all-deleted-permissions | jeremykenedy\LaravelRoles\App\Http\Controllers\LaravelpermissionsDeletedController@destroyAllDeletedPermissions | web,auth,role:admin |
-|        | POST      | permissions-deleted-restore-all | laravelroles::permissions-deleted-restore-all | jeremykenedy\LaravelRoles\App\Http\Controllers\LaravelpermissionsDeletedController@restoreAllDeletedPermissions | web,auth,role:admin |
-|        | GET|HEAD  | permissions/create              | laravelroles::permissions.create              | jeremykenedy\LaravelRoles\App\Http\Controllers\LaravelPermissionsController@create                              | web,auth,role:admin |
-|        | PUT|PATCH | permissions/{permission}        | laravelroles::permissions.update              | jeremykenedy\LaravelRoles\App\Http\Controllers\LaravelPermissionsController@update                              | web,auth,role:admin |
-|        | GET|HEAD  | permissions/{permission}        | laravelroles::permissions.show                | jeremykenedy\LaravelRoles\App\Http\Controllers\LaravelPermissionsController@show                                | web,auth,role:admin |
-|        | DELETE    | permissions/{permission}        | laravelroles::permissions.destroy             | jeremykenedy\LaravelRoles\App\Http\Controllers\LaravelPermissionsController@destroy                             | web,auth,role:admin |
-|        | GET|HEAD  | permissions/{permission}/edit   | laravelroles::permissions.edit                | jeremykenedy\LaravelRoles\App\Http\Controllers\LaravelPermissionsController@edit                                | web,auth,role:admin |
-|        | GET|HEAD  | role-deleted/{id}               | laravelroles::role-show-deleted               | jeremykenedy\LaravelRoles\App\Http\Controllers\LaravelRolesDeletedController@show                               | web,auth,role:admin |
-|        | DELETE    | role-destroy/{id}               | laravelroles::role-item-destroy               | jeremykenedy\LaravelRoles\App\Http\Controllers\LaravelRolesDeletedController@destroy                            | web,auth,role:admin |
-|        | PUT       | role-restore/{id}               | laravelroles::role-restore                    | jeremykenedy\LaravelRoles\App\Http\Controllers\LaravelRolesDeletedController@restoreRole                        | web,auth,role:admin |
-|        | POST      | roles                           | laravelroles::roles.store                     | jeremykenedy\LaravelRoles\App\Http\Controllers\LaravelRolesController@store                                     | web,auth,role:admin |
-|        | GET|HEAD  | roles                           | laravelroles::roles.index                     | jeremykenedy\LaravelRoles\App\Http\Controllers\LaravelRolesController@index                                     | web,auth,role:admin |
-|        | GET|HEAD  | roles-deleted                   | laravelroles::roles-deleted                   | jeremykenedy\LaravelRoles\App\Http\Controllers\LaravelRolesDeletedController@index                              | web,auth,role:admin |
-|        | DELETE    | roles-deleted-destroy-all       | laravelroles::destroy-all-deleted-roles       | jeremykenedy\LaravelRoles\App\Http\Controllers\LaravelRolesDeletedController@destroyAllDeletedRoles             | web,auth,role:admin |
-|        | POST      | roles-deleted-restore-all       | laravelroles::roles-deleted-restore-all       | jeremykenedy\LaravelRoles\App\Http\Controllers\LaravelRolesDeletedController@restoreAllDeletedRoles             | web,auth,role:admin |
-|        | GET|HEAD  | roles/create                    | laravelroles::roles.create                    | jeremykenedy\LaravelRoles\App\Http\Controllers\LaravelRolesController@create                                    | web,auth,role:admin |
-|        | DELETE    | roles/{role}                    | laravelroles::roles.destroy                   | jeremykenedy\LaravelRoles\App\Http\Controllers\LaravelRolesController@destroy                                   | web,auth,role:admin |
-|        | PUT|PATCH | roles/{role}                    | laravelroles::roles.update                    | jeremykenedy\LaravelRoles\App\Http\Controllers\LaravelRolesController@update                                    | web,auth,role:admin |
-|        | GET|HEAD  | roles/{role}                    | laravelroles::roles.show                      | jeremykenedy\LaravelRoles\App\Http\Controllers\LaravelRolesController@show                                      | web,auth,role:admin |
-|        | GET|HEAD  | roles/{role}/edit               | laravelroles::roles.edit                      | jeremykenedy\LaravelRoles\App\Http\Controllers\LaravelRolesController@edit                                      | web,auth,role:admin |
+|        | GET|HEAD  | permission-deleted/{id}         | laravelroles::permission-show-deleted         | aaronrichards\LaravelRoles\App\Http\Controllers\LaravelpermissionsDeletedController@show                         | web,auth,role:admin |
+|        | DELETE    | permission-destroy/{id}         | laravelroles::permission-item-destroy         | aaronrichards\LaravelRoles\App\Http\Controllers\LaravelpermissionsDeletedController@destroy                      | web,auth,role:admin |
+|        | PUT       | permission-restore/{id}         | laravelroles::permission-restore              | aaronrichards\LaravelRoles\App\Http\Controllers\LaravelpermissionsDeletedController@restorePermission            | web,auth,role:admin |
+|        | POST      | permissions                     | laravelroles::permissions.store               | aaronrichards\LaravelRoles\App\Http\Controllers\LaravelPermissionsController@store                               | web,auth,role:admin |
+|        | GET|HEAD  | permissions                     | laravelroles::permissions.index               | aaronrichards\LaravelRoles\App\Http\Controllers\LaravelPermissionsController@index                               | web,auth,role:admin |
+|        | GET|HEAD  | permissions-deleted             | laravelroles::permissions-deleted             | aaronrichards\LaravelRoles\App\Http\Controllers\LaravelpermissionsDeletedController@index                        | web,auth,role:admin |
+|        | DELETE    | permissions-deleted-destroy-all | laravelroles::destroy-all-deleted-permissions | aaronrichards\LaravelRoles\App\Http\Controllers\LaravelpermissionsDeletedController@destroyAllDeletedPermissions | web,auth,role:admin |
+|        | POST      | permissions-deleted-restore-all | laravelroles::permissions-deleted-restore-all | aaronrichards\LaravelRoles\App\Http\Controllers\LaravelpermissionsDeletedController@restoreAllDeletedPermissions | web,auth,role:admin |
+|        | GET|HEAD  | permissions/create              | laravelroles::permissions.create              | aaronrichards\LaravelRoles\App\Http\Controllers\LaravelPermissionsController@create                              | web,auth,role:admin |
+|        | PUT|PATCH | permissions/{permission}        | laravelroles::permissions.update              | aaronrichards\LaravelRoles\App\Http\Controllers\LaravelPermissionsController@update                              | web,auth,role:admin |
+|        | GET|HEAD  | permissions/{permission}        | laravelroles::permissions.show                | aaronrichards\LaravelRoles\App\Http\Controllers\LaravelPermissionsController@show                                | web,auth,role:admin |
+|        | DELETE    | permissions/{permission}        | laravelroles::permissions.destroy             | aaronrichards\LaravelRoles\App\Http\Controllers\LaravelPermissionsController@destroy                             | web,auth,role:admin |
+|        | GET|HEAD  | permissions/{permission}/edit   | laravelroles::permissions.edit                | aaronrichards\LaravelRoles\App\Http\Controllers\LaravelPermissionsController@edit                                | web,auth,role:admin |
+|        | GET|HEAD  | role-deleted/{id}               | laravelroles::role-show-deleted               | aaronrichards\LaravelRoles\App\Http\Controllers\LaravelRolesDeletedController@show                               | web,auth,role:admin |
+|        | DELETE    | role-destroy/{id}               | laravelroles::role-item-destroy               | aaronrichards\LaravelRoles\App\Http\Controllers\LaravelRolesDeletedController@destroy                            | web,auth,role:admin |
+|        | PUT       | role-restore/{id}               | laravelroles::role-restore                    | aaronrichards\LaravelRoles\App\Http\Controllers\LaravelRolesDeletedController@restoreRole                        | web,auth,role:admin |
+|        | POST      | roles                           | laravelroles::roles.store                     | aaronrichards\LaravelRoles\App\Http\Controllers\LaravelRolesController@store                                     | web,auth,role:admin |
+|        | GET|HEAD  | roles                           | laravelroles::roles.index                     | aaronrichards\LaravelRoles\App\Http\Controllers\LaravelRolesController@index                                     | web,auth,role:admin |
+|        | GET|HEAD  | roles-deleted                   | laravelroles::roles-deleted                   | aaronrichards\LaravelRoles\App\Http\Controllers\LaravelRolesDeletedController@index                              | web,auth,role:admin |
+|        | DELETE    | roles-deleted-destroy-all       | laravelroles::destroy-all-deleted-roles       | aaronrichards\LaravelRoles\App\Http\Controllers\LaravelRolesDeletedController@destroyAllDeletedRoles             | web,auth,role:admin |
+|        | POST      | roles-deleted-restore-all       | laravelroles::roles-deleted-restore-all       | aaronrichards\LaravelRoles\App\Http\Controllers\LaravelRolesDeletedController@restoreAllDeletedRoles             | web,auth,role:admin |
+|        | GET|HEAD  | roles/create                    | laravelroles::roles.create                    | aaronrichards\LaravelRoles\App\Http\Controllers\LaravelRolesController@create                                    | web,auth,role:admin |
+|        | DELETE    | roles/{role}                    | laravelroles::roles.destroy                   | aaronrichards\LaravelRoles\App\Http\Controllers\LaravelRolesController@destroy                                   | web,auth,role:admin |
+|        | PUT|PATCH | roles/{role}                    | laravelroles::roles.update                    | aaronrichards\LaravelRoles\App\Http\Controllers\LaravelRolesController@update                                    | web,auth,role:admin |
+|        | GET|HEAD  | roles/{role}                    | laravelroles::roles.show                      | aaronrichards\LaravelRoles\App\Http\Controllers\LaravelRolesController@show                                      | web,auth,role:admin |
+|        | GET|HEAD  | roles/{role}/edit               | laravelroles::roles.edit                      | aaronrichards\LaravelRoles\App\Http\Controllers\LaravelRolesController@edit                                      | web,auth,role:admin |
 +--------+-----------+---------------------------------+-----------------------------------------------+-----------------------------------------------------------------------------------------------------------------+---------------------+
 
 ```
@@ -1054,7 +1054,7 @@ Before opening an issue there are a couple of considerations:
 * **Show that you have made an attempt** to *look into the issue*.
 * **Check** to see if the issue you are *reporting is a duplicate* of a previous reported issue.
 * **Following these instructions show me that you have tried.**
-* If you have a questions send me an email to jeremykenedy@gmail.com
+* If you have a questions send me an email to aaronrichards@gmail.com
 * Need some help, I can do my best on Slack: https://opensourcehelpgroup.slack.com
 * Please be considerate that this is an open source project that I provide to the community for FREE when opening an issue.
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace jeremykenedy\LaravelRoles\Traits;
+namespace aaronrichards\LaravelRoles\Traits;
 
 trait RolesUsageAuthTrait
 {

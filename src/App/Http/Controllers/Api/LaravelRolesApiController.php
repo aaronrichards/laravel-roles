@@ -1,11 +1,11 @@
 <?php
 
-namespace jeremykenedy\LaravelRoles\App\Http\Controllers\Api;
+namespace aaronrichards\LaravelRoles\App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use jeremykenedy\LaravelRoles\App\Http\Requests\StoreRoleRequest;
-use jeremykenedy\LaravelRoles\Traits\RolesAndPermissionsHelpersTrait;
-use jeremykenedy\LaravelRoles\Traits\RolesUsageAuthTrait;
+use aaronrichards\LaravelRoles\App\Http\Requests\StoreRoleRequest;
+use aaronrichards\LaravelRoles\Traits\RolesAndPermissionsHelpersTrait;
+use aaronrichards\LaravelRoles\Traits\RolesUsageAuthTrait;
 
 class LaravelRolesApiController extends Controller
 {

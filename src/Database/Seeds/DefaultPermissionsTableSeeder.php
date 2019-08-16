@@ -1,6 +1,6 @@
 <?php
 
-namespace jeremykenedy\LaravelRoles\Database\Seeds;
+namespace aaronrichards\LaravelRoles\Database\Seeds;
 
 use Illuminate\Database\Seeder;
 
@@ -19,27 +19,27 @@ class DefaultPermissionsTableSeeder extends Seeder
          */
         $Permissionitems = [
             [
-                'name'        => 'Can View Users',
-                'slug'        => 'view.users',
-                'description' => 'Can view users',
+                'name'        => 'View',
+                'slug'        => 'view',
+                'description' => 'Can view',
                 'model'       => 'Permission',
             ],
             [
-                'name'        => 'Can Create Users',
-                'slug'        => 'create.users',
-                'description' => 'Can create new users',
+                'name'        => 'Create',
+                'slug'        => 'create',
+                'description' => 'can create',
                 'model'       => 'Permission',
             ],
             [
-                'name'        => 'Can Edit Users',
-                'slug'        => 'edit.users',
-                'description' => 'Can edit users',
+                'name'        => 'Edit',
+                'slug'        => 'edit',
+                'description' => 'can edit',
                 'model'       => 'Permission',
             ],
             [
-                'name'        => 'Can Delete Users',
-                'slug'        => 'delete.users',
-                'description' => 'Can delete users',
+                'name'        => 'Delete',
+                'slug'        => 'delete',
+                'description' => 'can delete',
                 'model'       => 'Permission',
             ],
         ];

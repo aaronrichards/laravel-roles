@@ -1,14 +1,14 @@
 <?php
 
-namespace jeremykenedy\LaravelRoles\App\Http\Controllers;
+namespace aaronrichards\LaravelRoles\App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use jeremykenedy\LaravelRoles\App\Http\Requests\StoreRoleRequest;
-use jeremykenedy\LaravelRoles\App\Http\Requests\UpdateRoleRequest;
-use jeremykenedy\LaravelRoles\App\Services\RoleFormFields;
-use jeremykenedy\LaravelRoles\Traits\RolesAndPermissionsHelpersTrait;
-use jeremykenedy\LaravelRoles\Traits\RolesUsageAuthTrait;
+use aaronrichards\LaravelRoles\App\Http\Requests\StoreRoleRequest;
+use aaronrichards\LaravelRoles\App\Http\Requests\UpdateRoleRequest;
+use aaronrichards\LaravelRoles\App\Services\RoleFormFields;
+use aaronrichards\LaravelRoles\Traits\RolesAndPermissionsHelpersTrait;
+use aaronrichards\LaravelRoles\Traits\RolesUsageAuthTrait;
 
 class LaravelRolesController extends Controller
 {
@@ -43,7 +43,7 @@ class LaravelRolesController extends Controller
     /**
      * Store a newly created role in storage.
      *
-     * @param \jeremykenedy\LaravelRoles\App\Http\Requests\StoreRoleRequest $request
+     * @param \aaronrichards\LaravelRoles\App\Http\Requests\StoreRoleRequest $request
      *
      * @return \Illuminate\Http\Response
      */
@@ -89,7 +89,7 @@ class LaravelRolesController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \jeremykenedy\LaravelRoles\App\Http\Requests\UpdateRoleRequest $request
+     * @param \aaronrichards\LaravelRoles\App\Http\Requests\UpdateRoleRequest $request
      * @param int                                                            $id
      *
      * @return \Illuminate\Http\Response

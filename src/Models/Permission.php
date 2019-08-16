@@ -1,13 +1,13 @@
 <?php
 
-namespace jeremykenedy\LaravelRoles\Models;
+namespace aaronrichards\LaravelRoles\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use jeremykenedy\LaravelRoles\Contracts\PermissionHasRelations as PermissionHasRelationsContract;
-use jeremykenedy\LaravelRoles\Traits\DatabaseTraits;
-use jeremykenedy\LaravelRoles\Traits\PermissionHasRelations;
-use jeremykenedy\LaravelRoles\Traits\Slugable;
+use aaronrichards\LaravelRoles\Contracts\PermissionHasRelations as PermissionHasRelationsContract;
+use aaronrichards\LaravelRoles\Traits\DatabaseTraits;
+use aaronrichards\LaravelRoles\Traits\PermissionHasRelations;
+use aaronrichards\LaravelRoles\Traits\Slugable;
 
 class Permission extends Model implements PermissionHasRelationsContract
 {
